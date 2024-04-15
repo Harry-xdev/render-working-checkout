@@ -262,7 +262,7 @@ def function_lie():
 		if minute % 5 == 0:
 			url = "https://render-working-checkout.onrender.com"
 			interval = 5
-			send_request_for_active_website(url, interval)
+			send_request_for_active_website(url)
 		time.sleep(50)
 
 if __name__ == "__main__":
