@@ -254,7 +254,7 @@ def handle_button():
 	return 'Data written.'
 
 url = "https://working-checkout.onrender.com"
-interval = 5
+interval = 15
 send_request_for_active_website(url, interval)
 
 if __name__ == "__main__":
