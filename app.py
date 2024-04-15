@@ -261,7 +261,7 @@ def function_lie():
 		current = datetime.datetime.now(desired_timezone)
 		minute = current.time().minute
 		if minute % 1 == 0:
-			url = "https://www.google.com"
+			url = "https://render-working-checkout.onrender.com/"
 			send_request_for_active_website(url)
 		time.sleep(5)
 
@@ -269,7 +269,4 @@ if __name__ == "__main__":
 	threading.Thread(target=function_lie).start()
 	# app.run(port=5500)
 	app.run()
-
-
-
 
