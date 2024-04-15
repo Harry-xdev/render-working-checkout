@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, send_file, jsonify
+import threading
 from flask_cors import CORS, cross_origin
 import json
 import csv
@@ -94,17 +95,16 @@ def read_csv():
 	# print(data)
 	return data
 
-def send_request_for_active_website(url, interval):
-	while True:
-		try:
-			response = requests.get(url)
-			if response.status_code == 200:
-				print(f"Request to {url} successful.")
-			else:
-				print("Request failed: Code {response.status_code}.")
-		except requests.RequestExeption as e:
-			print(f"Request to {url} failed: {str(e)}")
-		time.sleep(interval)
+def send_request_for_active_website(url):
+	try:
+		response = requests.get(url)
+		if response.status_code == 200:
+			print(f"Request to {url} successful.")
+		else:
+			print("Request failed: Code {response.status_code}.")
+	except requests.RequestExeption as e:
+		print(f"Request to {url} failed: {str(e)}")
+		
 
 
 app = Flask(__name__, static_url_path='/static', static_folder='templates')
@@ -253,13 +253,23 @@ def handle_button():
 	write_staff_data_to_csv()
 	return 'Data written.'
 
-url = "https://www.google.com"
-interval = 300
-send_request_for_active_website(url, interval)
+
+def function_lie():
+
+	while True:
+		current = datetime.datetime.now()
+		minute = current.time().minute
+		if minute % 5 == 0:
+			url = "https://render-working-checkout.onrender.com"
+			interval = 5
+			send_request_for_active_website(url, interval)
+		time.sleep(50)
 
 if __name__ == "__main__":
+	threading.Thread(target=function_lie).start()
 	# app.run(port=5500)
 	app.run()
+
 
 
 
