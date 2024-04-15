@@ -260,10 +260,10 @@ def function_lie():
 		desired_timezone = pytz.timezone("Asia/Ho_Chi_Minh")
 		current = datetime.datetime.now(desired_timezone)
 		minute = current.time().minute
-		if minute % 3 == 0:
-			url = "https://render-working-checkout.onrender.com"
+		if minute % 1 == 0:
+			url = "https://www.google.com"
 			send_request_for_active_website(url)
-		time.sleep(30)
+		time.sleep(5)
 
 if __name__ == "__main__":
 	threading.Thread(target=function_lie).start()
