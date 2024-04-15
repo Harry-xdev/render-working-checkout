@@ -257,13 +257,13 @@ def handle_button():
 def function_lie():
 
 	while True:
+		desired_timezone = pytz.timezone("Asia/Ho_Chi_Minh")
 		current = datetime.datetime.now()
-		minute = current.time().minute
-		if minute % 5 == 0:
+		minute = current.time(desired_timezone).minute
+		if minute % 3 == 0:
 			url = "https://render-working-checkout.onrender.com"
-			interval = 5
 			send_request_for_active_website(url)
-		time.sleep(50)
+		time.sleep(30)
 
 if __name__ == "__main__":
 	threading.Thread(target=function_lie).start()
