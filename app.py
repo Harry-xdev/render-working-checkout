@@ -253,7 +253,7 @@ def handle_button():
 	write_staff_data_to_csv()
 	return 'Data written.'
 
-url = "https://working-checkout.onrender.com"
+url = "https://render-working-checkout.onrender.com"
 interval = 15
 send_request_for_active_website(url, interval)
 
