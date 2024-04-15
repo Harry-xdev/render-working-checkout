@@ -258,8 +258,8 @@ def function_lie():
 
 	while True:
 		desired_timezone = pytz.timezone("Asia/Ho_Chi_Minh")
-		current = datetime.datetime.now()
-		minute = current.time(desired_timezone).minute
+		current = datetime.datetime.now(desired_timezone)
+		minute = current.time().minute
 		if minute % 3 == 0:
 			url = "https://render-working-checkout.onrender.com"
 			send_request_for_active_website(url)
