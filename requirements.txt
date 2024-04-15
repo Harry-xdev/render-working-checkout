@@ -4,5 +4,4 @@ pytz
 pandas
 openpyxl
 flask_cors
-time
 requests
