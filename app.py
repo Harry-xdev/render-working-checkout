@@ -253,9 +253,9 @@ def handle_button():
 	write_staff_data_to_csv()
 	return 'Data written.'
 
-url = "https://google.com"
-interval = 60
-send_request_for_active_website(url, interval)
+# url = "https://google.com"
+# interval = 60
+# send_request_for_active_website(url, interval)
 
 if __name__ == "__main__":
 	# app.run(port=5500)
